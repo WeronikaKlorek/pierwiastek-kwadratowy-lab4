@@ -6,10 +6,10 @@ namespace pierwiastek_kwadratowy.Tests
     public class PierwiastekTests
     {
         [Theory]
-        [InlineData(1, -4, 4, 0, 2, double.NaN)]
+        [InlineData(2, 2, -4, 36, -2, 1)]
         [InlineData(1, -5, 6, 1, 2, 3)]
-        [InlineData(1, 0, -4, 16, -4, double.NaN)]
-        public void ObliczPierwiastki_ShouldReturnCorrectResults(int a, int b, int c, double expectedDelta, double expectedX1, double expectedX2)
+        [InlineData(1, 0, -4, 16, -2, 2)]
+        public void ObliczPierwiastki_dwaMiejscaZerowe(int a, int b, int c, double expectedDelta, double expectedX1, double expectedX2)
         {
             // Arrange
             Pierwiastek pierwiastek = new Pierwiastek();
@@ -25,9 +25,7 @@ namespace pierwiastek_kwadratowy.Tests
             Assert.Equal(expectedX1, actualX1);
             Assert.Equal(expectedX2, actualX2);
 
-            // Additional assertion for NaN values
-            Assert.True(double.IsNaN(actualX1));
-            Assert.True(double.IsNaN(actualX2));
+            
         }
     }
 }
